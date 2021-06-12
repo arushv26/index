@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script>
+function sendfile (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/13673/',
+        type:'post',
+        data:$("#f1").serializeArray(),
+        success: function(){
+          alert("Form Data Submitted ")
+        },
+        error: function(){
+          alert("There was an error ")
+        }
+    });
+}
+</script>
+</head>
+<body style="text-align: center;">
+  <form id="f1">
+    <label >Task</label>
+    <br/>
+    <input name="Entered_Task" />
+    <br/>
+  </form>
+  <button style="margin-top: 2px; background-color: aqua;" onclick="sendfile()">Submit</button>
+</body>
+</html>
